@@ -1,3 +1,8 @@
+1
+3
+2
+
+data
 1.(echo List Disk) | diskpart & CHKDSK
 
 2.cd C:/ & tree
@@ -30,23 +35,5 @@
 
 16. talk user@host
 
-17. cat ~/*.txt >> data3.txt 
-
-18.ATTRIB -A C:\Users\user\*.txt & ATTRIB -A data3.txt //systemy unix i linux nie posiadają atrybuttu archive za to można użyć chattr do zmiany pozostałych atrbytów 
-
-19. find ~/*.txt | grep -v data3.txt | rm 
-
-20. echo witaj
-
-21. dir % > pliki_katalogi.txt
-
-22. dir % > %2
-
-23. dir %1 | findstr ".%2" > %3
-
-24. xcopy %1 %2 /d /s
-
-
-
-
+17. echo "data" >> data2.txt
 
