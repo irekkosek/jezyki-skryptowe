@@ -46,7 +46,181 @@
 
 24. xcopy %1 %2 /d /s
 
+25 .del %1\*.tmp
 
+26. SET /P imie_uzytkownika='podaj imie' & echo %imie_uzytkownika%
+
+27. SETLOCAL & zmienna=”C:\” echo %zmienna% & ENDLOCAL echo %zmienna%
+
+28. goto label1
+    echo 123
+    :label1
+    echo 456
+
+29. echo click space
+    pause
+    echo 246
+
+30. SET /P imie_uzytkownika='podaj imie' & title %imie_uzytkownika%
+
+31. title %1
+
+32. shift
+    shift
+    echo %1 %2 %3 %4 %5
+
+33.call 31.bat %1 & dir %1
+
+34. set /p katalog=”sciezka do katalogu: ”
+    set /p plik=”nazwa pliku: ”
+    dir call 33.bat %katalog% > %plik%
+
+35. for %%i in (1, 2 ,3) do (
+        echo %%i
+    )
+
+36. dir * %1
+
+37. ren *.jpg *.eps & ren *.png *.eps
+
+38. FOR /L %%parameter IN (0,1,%1) DO echo "%parameter% \n"
+
+39. call %1 & find *.png & find *.jpg & find *.eps
+
+40. dir /D
+
+41. dir /D > $1
+
+42. delete *.tmp
+
+43. del %1\*.tmp
+
+44. set /p typ=file_type?
+    if exist *.%type% (goto first_option) else (goto second_option)
+    :first_option
+    del *.%type%
+    goto end
+    :second_option
+    echo Nie ma takich.
+    :end
+    pause
+
+45. call 35.bat >> %1
+
+46. set /p n=”podaj n: ”
+    for /l %%i in (1,1,%n%) do echo %%i > %1
+
+47. if %1==del del test.txt
+    if %1==touch type NUL > test.txt
+
+48.for %%x in (C: D: E: F: G: H: I: J: K:) do (
+    cd %%x
+    dir /s %1 )
+
+49. del $1\*tmp
+
+50. if “%1”==”/a” goto no_prompt
+    if “%1”==”/h” goto h
+    del “%USERPROFILE%\MenuStart\Programy\Autostart\*.*” /p /f
+    reg delete HKCU\Software\Microsoft\Windows\CurrentVersion\Run” /va
+    goto:EOF
+    :no_prompt
+    del “%USERPROFILE%\MenuStart\Programy\Autostart\*.*” /f
+    reg delete HKCU\Software\Microsoft\Windows\CurrentVersion\Run” /va /f
+    goto:EOF
+    :h
+    echo. /a – usuwa wszystkie wpisy bez pytania uzytkownika
+    echo. /h – wyswietla pomoc.
+
+51. set /p a=”a: ”
+    set /p b=”b: ”
+    echo (%a% + %b%)
+    echo (%a% – %b%)
+    echo (%a% / %b%)
+    echo (%a% * %b%)
+
+52. set hex=%1
+    set /a dec=0x%hex%
+    echo %dec%
+
+53. set /p hex="hex: "
+    set /a dec=0x%hex%
+    echo %dec%
+
+54.
+    if %1==styczen a=1
+    if %1==luty set a=2
+    if %1==marzec set a=3
+    if %1==kwiecien set a=4
+    if %1==maj set a=5
+    if %1==czerwiec set a=6
+    if %1==lipiec set a=7
+    if %1==sierpien set a=8
+    if %1==wrzesien set a=9
+    if %1==pazdziernik set a=10
+    if %1==listopad set a=11
+    if %1==grudzien set a=12
+    echo %a%
+
+55.
+    set /p msc="msc"
+    if %msc%==styczen a=1
+    if %msc%==luty set a=2
+    if %msc%==marzec set a=3
+    if %msc%==kwiecien set a=4
+    if %msc%==maj set a=5
+    if %msc%==czerwiec set a=6
+    if %msc%==lipiec set a=7
+    if %msc%==sierpien set a=8
+    if %msc%==wrzesien set a=9
+    if %msc%==pazdziernik set a=10
+    if %msc%==listopad set a=11
+    if %msc%==grudzien set a=12
+    echo %a%
+    
+56.
+    set /p msc=<miesiac.txt
+    if %msc%==styczen a=1
+    if %msc%==luty set a=2
+    if %msc%==marzec set a=3
+    if %msc%==kwiecien set a=4
+    if %msc%==maj set a=5
+    if %msc%==czerwiec set a=6
+    if %msc%==lipiec set a=7
+    if %msc%==sierpien set a=8
+    if %msc%==wrzesien set a=9
+    if %msc%==pazdziernik set a=10
+    if %msc%==listopad set a=11
+    if %msc%==grudzien set a=12
+    echo %a%
+
+57.
+    set /p s=”string: ”
+    echo %s:~2,2%
+
+58. set string=%1
+    set string=%string:wyciete=%
+    echo %string%
+
+59.
+    set string=<%1
+    set string=%string:wyciete=%
+    echo %string%
+60.
+    set /p string1=”string1: ”
+    set /p string2=”string2: ”
+    set scal=%string1%%string2%
+    echo %scal%
+
+61.
+    set /p file1=”plik1: ”
+    set /p string2=”plik2: ”
+    set /p string1=<file1
+    set /p string2=<file2
+    set scal=%string1%%string2%
+    echo %scal%
+
+62.
 
 
 
