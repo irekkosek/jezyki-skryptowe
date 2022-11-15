@@ -221,6 +221,83 @@
     echo %scal%
 
 62.
+    setlocal ENABLEDELAYEDEXPANSION
+    set s=%1
+    set p=0
+    :next
+    set char=!s:~%p%,1!
+    set /a p=”%p%+1"
+    if !char!==^” GOTO next
+    set test=%st%
+    set “st=%st%%char%”
+    if !test!==!st! goto eof
+    goto next
+    :eof
+    echo %st%
+63.
+    :menu
+    echo wybierz program bat
+    echo 1. program1.bat
+    echo 2. program2.bat
+    echo 3. program3.bat
+    echo 4. program4.bat
+    set /p wybrany=": "
+    if %wybrany%==1 GOTO program1
+    if %wybrany%==2 GOTO program2
+    if %wybrany%==3 GOTO program3
+    if %wybrany%==4 GOTO program4
+    
+    :program1
+    echo "program1.bat"
+    pause
+    goto menu
+    :program2
+    echo "program2.bat"
+    pause
+    goto menu
+    :program3
+    echo "program3.bat"
+    pause
+    goto menu
+    :program4
+    echo "program4.bat"
+    pause
+    goto menu 
+64.
+    setlocal enabledelayedexpansion
+    set “string=”
+    echo Przed
+    for /f “tokens=* delims=” %%i in (%1) do (
+    set string=%%i
+    echo !string!
+    )
+    set “string=”
+    echo Po
+    for /f “tokens=* delims=” %%i in (%1) do (
+    set string=%%i
+    echo !string:przed=po!
+    )
+    endlocal
+65.
+    setlocal enabledelayedexpansion
+    for /f “tokens=* delims=” %%i in (%1) do (
+    set string=%%i
+    echo !string:przed=po! >> %2
+    )
+    endlocal
+66.
+    ren %1\*.txt *.txt2
+    if “%~2”==”” goto end
+    if %2==copy (goto if) else (goto end)
+    :if
+    set /p kat=”katalog: ”
+    set /p dat=”jak stare: ”
+    if not exist %1\%kat% mkdir %1\%kat%
+    forfiles /p %1 /m *.txt2 /c “cmd /c copy @path %kat%\@file” /d -%dat%
+    :end
+
+
+
 
 
 

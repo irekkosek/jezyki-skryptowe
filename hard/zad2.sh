@@ -14,5 +14,5 @@ for i in *.txt; do
     fi
 done
 
-sort takie_same.txt
-sort rozne.txt
+sort -o takie_same.txt takie_same.txt
+sort -o rozne.txt rozne.txt
