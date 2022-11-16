@@ -1,0 +1,3 @@
+mode of './myfiles' retained as 0755 (rwxr-xr-x)
+mode of './myfiles/stats' retained as 0644 (rw-r--r--)
+mode of './myfiles/notes' retained as 0644 (rw-r--r--)
