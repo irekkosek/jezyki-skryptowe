@@ -1,0 +1,208 @@
+41. dir /D > $1
+
+42. delete *.tmp
+
+43. del %1\*.tmp
+
+44. set /p typ=file_type?
+    if exist *.%type% (goto first_option) else (goto second_option)
+    :first_option
+    del *.%type%
+    goto end
+    :second_option
+    echo Nie ma takich.
+    :end
+    pause
+
+45. call 35.bat >> %1
+
+46. set /p n=”podaj n: ”
+    for /l %%i in (1,1,%n%) do echo %%i > %1
+
+47. if %1==del del test.txt
+    if %1==touch type NUL > test.txt
+
+48.for %%x in (C: D: E: F: G: H: I: J: K:) do (
+    cd %%x
+    dir /s %1 )
+
+49. del $1\*tmp
+
+50. if “%1”==”/a” goto no_prompt
+    if “%1”==”/h” goto h
+    del “%USERPROFILE%\MenuStart\Programy\Autostart\*.*” /p /f
+    reg delete HKCU\Software\Microsoft\Windows\CurrentVersion\Run” /va
+    goto:EOF
+    :no_prompt
+    del “%USERPROFILE%\MenuStart\Programy\Autostart\*.*” /f
+    reg delete HKCU\Software\Microsoft\Windows\CurrentVersion\Run” /va /f
+    goto:EOF
+    :h
+    echo. /a – usuwa wszystkie wpisy bez pytania uzytkownika
+    echo. /h – wyswietla pomoc.
+
+51. set /p a=”a: ”
+    set /p b=”b: ”
+    echo (%a% + %b%)
+    echo (%a% – %b%)
+    echo (%a% / %b%)
+    echo (%a% * %b%)
+
+52. set hex=%1
+    set /a dec=0x%hex%
+    echo %dec%
+
+53. set /p hex="hex: "
+    set /a dec=0x%hex%
+    echo %dec%
+
+54.
+    if %1==styczen a=1
+    if %1==luty set a=2
+    if %1==marzec set a=3
+    if %1==kwiecien set a=4
+    if %1==maj set a=5
+    if %1==czerwiec set a=6
+    if %1==lipiec set a=7
+    if %1==sierpien set a=8
+    if %1==wrzesien set a=9
+    if %1==pazdziernik set a=10
+    if %1==listopad set a=11
+    if %1==grudzien set a=12
+    echo %a%
+
+55.
+    set /p msc="msc"
+    if %msc%==styczen a=1
+    if %msc%==luty set a=2
+    if %msc%==marzec set a=3
+    if %msc%==kwiecien set a=4
+    if %msc%==maj set a=5
+    if %msc%==czerwiec set a=6
+    if %msc%==lipiec set a=7
+    if %msc%==sierpien set a=8
+    if %msc%==wrzesien set a=9
+    if %msc%==pazdziernik set a=10
+    if %msc%==listopad set a=11
+    if %msc%==grudzien set a=12
+    echo %a%
+    
+56.
+    set /p msc=<miesiac.txt
+    if %msc%==styczen a=1
+    if %msc%==luty set a=2
+    if %msc%==marzec set a=3
+    if %msc%==kwiecien set a=4
+    if %msc%==maj set a=5
+    if %msc%==czerwiec set a=6
+    if %msc%==lipiec set a=7
+    if %msc%==sierpien set a=8
+    if %msc%==wrzesien set a=9
+    if %msc%==pazdziernik set a=10
+    if %msc%==listopad set a=11
+    if %msc%==grudzien set a=12
+    echo %a%
+
+57.
+    set /p s=”string: ”
+    echo %s:~2,2%
+
+58. set string=%1
+    set string=%string:wyciete=%
+    echo %string%
+
+59.
+    set string=<%1
+    set string=%string:wyciete=%
+    echo %string%
+60.
+    set /p string1=”string1: ”
+    set /p string2=”string2: ”
+    set scal=%string1%%string2%
+    echo %scal%
+
+61.
+    set /p file1=”plik1: ”
+    set /p string2=”plik2: ”
+    set /p string1=<file1
+    set /p string2=<file2
+    set scal=%string1%%string2%
+    echo %scal%
+
+62.
+    setlocal ENABLEDELAYEDEXPANSION
+    set s=%1
+    set p=0
+    :next
+    set char=!s:~%p%,1!
+    set /a p=”%p%+1"
+    if !char!==^” GOTO next
+    set test=%st%
+    set “st=%st%%char%”
+    if !test!==!st! goto eof
+    goto next
+    :eof
+    echo %st%
+63.
+    :menu
+    echo wybierz program bat
+    echo 1. program1.bat
+    echo 2. program2.bat
+    echo 3. program3.bat
+    echo 4. program4.bat
+    set /p wybrany=": "
+    if %wybrany%==1 GOTO program1
+    if %wybrany%==2 GOTO program2
+    if %wybrany%==3 GOTO program3
+    if %wybrany%==4 GOTO program4
+    
+    :program1
+    echo "program1.bat"
+    pause
+    goto menu
+    :program2
+    echo "program2.bat"
+    pause
+    goto menu
+    :program3
+    echo "program3.bat"
+    pause
+    goto menu
+    :program4
+    echo "program4.bat"
+    pause
+    goto menu 
+64.
+    setlocal enabledelayedexpansion
+    set “string=”
+    echo Przed
+    for /f “tokens=* delims=” %%i in (%1) do (
+    set string=%%i
+    echo !string!
+    )
+    set “string=”
+    echo Po
+    for /f “tokens=* delims=” %%i in (%1) do (
+    set string=%%i
+    echo !string:przed=po!
+    )
+    endlocal
+65.
+    setlocal enabledelayedexpansion
+    for /f “tokens=* delims=” %%i in (%1) do (
+    set string=%%i
+    echo !string:przed=po! >> %2
+    )
+    endlocal
+66.
+    ren %1\*.txt *.txt2
+    if “%~2”==”” goto end
+    if %2==copy (goto if) else (goto end)
+    :if
+    set /p kat=”katalog: ”
+    set /p dat=”jak stare: ”
+    if not exist %1\%kat% mkdir %1\%kat%
+    forfiles /p %1 /m *.txt2 /c “cmd /c copy @path %kat%\@file” /d -%dat%
+    :end
+
+

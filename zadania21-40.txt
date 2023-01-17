@@ -1,0 +1,50 @@
+21. dir % > pliki_katalogi.txt
+
+22. dir % > %2
+
+23. dir %1 | findstr ".%2" > %3
+
+24. xcopy %1 %2 /d /s
+
+25 .del %1\*.tmp
+
+26. SET /P imie_uzytkownika='podaj imie' & echo %imie_uzytkownika%
+
+27. SETLOCAL & zmienna=”C:\” echo %zmienna% & ENDLOCAL echo %zmienna%
+
+28. goto label1
+    echo 123
+    :label1
+    echo 456
+
+29. echo click space
+    pause
+    echo 246
+
+30. SET /P imie_uzytkownika='podaj imie' & title %imie_uzytkownika%
+
+31. title %1
+
+32. shift
+    shift
+    echo %1 %2 %3 %4 %5
+
+33.call 31.bat %1 & dir %1
+
+34. set /p katalog=”sciezka do katalogu: ”
+    set /p plik=”nazwa pliku: ”
+    dir call 33.bat %katalog% > %plik%
+
+35. for %%i in (1, 2 ,3) do (
+        echo %%i
+    )
+
+36. dir * %1
+
+37. ren *.jpg *.eps & ren *.png *.eps
+
+38. FOR /L %%parameter IN (0,1,%1) DO echo "%parameter% \n"
+
+39. call %1 & find *.png & find *.jpg & find *.eps
+
+40. dir /D
