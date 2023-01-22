@@ -2,5 +2,3 @@ more monad like approach
 fifo handling is done in a separate thread
 and the main thread is only responsible for
 writing to the fifo
-
-copilot labs to make it more readable
