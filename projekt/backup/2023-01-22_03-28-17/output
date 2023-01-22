@@ -1,0 +1,12 @@
+numeric sum: 1.4142135623730951
+symbolic sum: sqrt(2)
+numeric sum: 1.7320508075688772
+symbolic sum: sqrt(3)
+numeric sum: 2.0
+symbolic sum: sqrt(4)
+numeric sum: 2.23606797749979
+symbolic sum: sqrt(5)
+numeric sum: 2.449489742783178
+symbolic sum: sqrt(6)
+numeric sum: 2.6457513110645907
+symbolic sum: sqrt(7)
